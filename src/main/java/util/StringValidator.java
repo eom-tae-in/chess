@@ -6,7 +6,7 @@ public class StringValidator {
 
     public static void validation(final String text) {
         checkNull(text);
-        checkNotBlank(text);
+        checkBlank(text);
     }
 
     private static void checkNull(final String text) {
@@ -15,7 +15,7 @@ public class StringValidator {
         }
     }
 
-    private static void checkNotBlank(final String text) {
+    private static void checkBlank(final String text) {
         if (text.isBlank()) {
             throw new IllegalArgumentException(WRONG_INPUT.getMessage());
         }

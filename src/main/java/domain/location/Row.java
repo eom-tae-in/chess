@@ -1,9 +1,13 @@
 package domain.location;
 
 import domain.Value;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
+
+import static exception.PositionMessage.ROW_NOT_FOUND_EXCEPTION;
 
 public enum Row {
 
@@ -30,5 +34,21 @@ public enum Row {
         List<Row> rowList = Arrays.asList(values());
         Collections.reverse(rowList);
         return rowList;
+    }
+
+    public static Row getRow(final String value) {
+        return Arrays.stream(values())
+                .filter(row -> row.value.getValue().equals(value))
+                .findAny()
+                .orElseThrow(() -> new NoSuchElementException(ROW_NOT_FOUND_EXCEPTION.getMessage()));
+    }
+
+    public Row awayFrom(int index) {
+        int nextIndex = ordinal() + index;
+        return values()[nextIndex];
+    }
+
+    public static int calculateDistance(final Row nextRow, final Row currentRow) {
+        return nextRow.ordinal() - currentRow.ordinal();
     }
 }

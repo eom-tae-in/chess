@@ -1,7 +1,6 @@
-package domain;
+package domain.team;
 
 public enum Team {
-
     BLACK,
-    WHITE
+    WHITE;
 }

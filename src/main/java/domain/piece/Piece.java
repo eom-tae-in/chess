@@ -1,28 +1,13 @@
 package domain.piece;
 
-import domain.Name;
-import domain.Team;
+import domain.team.Team;
+import domain.location.Position;
 
-public class Piece {
+public interface Piece {
 
-    private final Team team;
-    private final Name name;
+    Team getTeam();
 
-    public Piece(final Team team, final Name name) {
-        this.team = team;
-        this.name = name;
-    }
+    String getName();
 
-    public Team getTeam() {
-        return team;
-    }
-
-    public String getName() {
-        return name.getName();
-    }
-
-    public boolean isBlack() {
-        return team == Team.BLACK;
-    }
+    void checkCanMove(Position currentPosition, Position nextPosition);
 }
-

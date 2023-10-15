@@ -1,19 +1,20 @@
 package dto;
 
-import domain.location.Location;
+import domain.location.Position;
+import domain.piece.ChessPiece;
 import domain.piece.Piece;
+
 import java.util.Collections;
 import java.util.Map;
 
 public class BoardResponse {
+    private final Map<Position, Piece> board;
 
-    private final Map<Location, Piece> board;
-
-    public BoardResponse(final Map<Location, Piece> board) {
+    public BoardResponse(final Map<Position, Piece> board) {
         this.board = Collections.unmodifiableMap(board);
     }
 
-    public Map<Location, Piece> getBoard() {
+    public Map<Position, Piece> getBoard() {
         return board;
     }
 }

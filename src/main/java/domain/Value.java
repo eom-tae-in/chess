@@ -1,7 +1,5 @@
 package domain;
 
-import java.util.Objects;
-
 public class Value {
 
     private final String value;
@@ -14,16 +12,7 @@ public class Value {
         return value;
     }
 
-    @Override
-    public boolean equals(final Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        Value value = (Value) object;
-        return Objects.equals(this.value, value.value);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(value);
+    public String getStringWithIndex(int index) {
+        return String.valueOf(value.charAt(index));
     }
 }
